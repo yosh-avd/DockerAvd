@@ -1,0 +1,17 @@
+#setup adminer and postgres db
+---
+version: '3.8'
+services:
+  mypostgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: test123
+      POSTGRES_USER: yosh
+      POSTGRES_DB: mydb
+  myadminer:
+    image: adminer
+    ports:
+      - 4040:8080
+    links:
+      - mypostgres:postgres
+...
